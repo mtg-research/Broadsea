@@ -65,7 +65,7 @@ services:
   #     - "traefik.enable=true"
 
   broadsea-hades:
-    # profiles: [ "default", "hades" ]
+    profiles: [ "default", "hades" ]
     container_name: broadsea-hades
     image: ohdsi/broadsea-hades:4.2.1
     platform: "linux/amd64"
@@ -82,14 +82,14 @@ services:
 
   # WebAPI and Atlas services based on the standard Docker Hub images -------------
   ohdsi-webapi-from-image:
-    # profiles: [ "default", "webapi-from-image" ]
+    profiles: [ "default", "webapi-from-image" ]
     image: docker.io/ohdsi/webapi:latest
     extends: 
       file: "./compose/ohdsi-webapi.yml"
       service: ohdsi-webapi
 
   ohdsi-atlas-from-image:
-    # profiles: [ "default", "atlas-from-image" ]
+    profiles: [ "default", "atlas-from-image" ]
     image: docker.io/ohdsi/atlas:latest
     extends: 
       file: "./compose/ohdsi-atlas.yml"
@@ -117,7 +117,7 @@ services:
   # # -----------------------------------------------------------------
 
   broadsea-atlasdb:
-    # profiles: [ "default", "atlasdb" ]
+    profiles: [ "default", "atlasdb" ]
     image: ohdsi/broadsea-atlasdb:2.1.0-secret
     container_name: broadsea-atlasdb
     platform: linux/amd64
@@ -278,7 +278,7 @@ services:
 # CDM Post-Processing ---------------
 
   broadsea-run-achilles:
-    # profiles: [ "cdm-postprocessing", "achilles" ]
+    profiles: [ "cdm-postprocessing", "achilles" ]
     build: 
       context: ./achilles
       secrets:
@@ -322,7 +322,7 @@ services:
     entrypoint: ["Rscript", "/postprocessing/achilles/scripts/${CDM_DATABASE_SCHEMA}.R" ]
 
   broadsea-run-dqd:
-    # profiles: [ "cdm-postprocessing", "dqd" ]
+    profiles: [ "cdm-postprocessing", "dqd" ]
     build: 
       context: ./dqd
       secrets:
