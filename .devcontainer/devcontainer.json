@@ -8,6 +8,7 @@
     "service": "app",
     "initializeCommand": "bash .devcontainer/setup-host",
     "onCreateCommand": "bash .devcontainer/setup-editor",
+    "postCreateCommand": "docker compose --profile default up -d",
     "customizations": {
       "vscode": {
         "extensions": [
