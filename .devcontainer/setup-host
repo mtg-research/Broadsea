@@ -2,7 +2,7 @@
 
 if [ -n $CODESPACES ]
 then
-  echo "GITHUB_TOKEN=$(gh auth token)" > .env
+  echo "GITHUB_TOKEN=$(gh auth token)" > .env.gh
 
 else
   if [ -e ".env" ]
@@ -12,6 +12,6 @@ else
       -u $(git config --get user.email) \
       --password-stdin
   else
-    echo "GITHUB_TOKEN=$(gh auth token)" > .env
+    echo "GITHUB_TOKEN=$(gh auth token)" > .env.gh
   fi
 fi
