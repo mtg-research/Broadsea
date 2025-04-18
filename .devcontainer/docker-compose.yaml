@@ -3,4 +3,4 @@ services:
     entrypoint: ["sleep"]
     command: ["infinity"]
     env_file:
-      - .env
+      - ./.env
